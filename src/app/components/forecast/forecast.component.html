@@ -1,0 +1,27 @@
+<div [hidden]="!resultFound()" [class.dark-theme]="theme">
+  <h1 class="center">
+    Next 5 days at 9 {{ theme ? "PM" : "AM" }} weather forecast for
+    <span class="txt-clr">{{ loc }}</span>
+  </h1>
+  <mat-card
+    class="mat-elevation-z18 wb-card"
+    *ngFor="let l of filterForecast | slice: 0:5; let i = index"
+    [title]="l.dt_txt | date: 'd MMM, y'"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{ l.dt_txt | date: "d MMM, y" }}</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item> <strong>Temperature: </strong>{{ l.main?.temp - 273.15 | number: "1.0-0" }} <span><sup>o</sup></span>C</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> <strong> Sea Level</strong> : {{ l.main?.sea_level | number: "1.0-0" }}m </mat-list-item>
+       </mat-list> 
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="!resultFound()">
+  <h1 class="center">{{ msg || "Failed to get weather." }}</h1>
+</div>

@@ -1,0 +1,58 @@
+@import "./styles/wb-common.scss";
+@import "./styles/wb-variables.scss";
+
+// Header
+
+.wb-header {
+  height: $toolbar-height;
+}
+
+.wb-toolbar-city {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+}
+
+// Sidenav Content
+
+.wb-sidenav-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: $toolbar-height;
+}
+
+// Cards
+
+.wb-card-position {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.example-action-button {
+  margin-bottom: 8px;
+}
+// .mat-toolbar.mat-primary {
+//   background: rgb(36, 22, 22);
+//   color: #fff;
+// }
+.mat-card-hov:hover {
+  cursor: pointer !important;
+  background: lightgreen !important;
+}
+.txt-clr {
+  color: rgb(218, 9, 120);
+}
+.img-wrapper {
+  float: right;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}

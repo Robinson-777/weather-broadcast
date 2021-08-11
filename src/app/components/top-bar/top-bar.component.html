@@ -1,0 +1,13 @@
+<div [class.dark-theme]="isDark">
+  <mat-toolbar color="primary" class="mat-elevation-z18">
+    <span> Weather Broadcast App </span>
+    <span class="example-fill-remaining-space"></span>
+    <span>
+      <div class="wb-margin-1-rem">
+        <mat-slide-toggle color="accent" (change)="toggleTheme()"
+          >Dark Mode</mat-slide-toggle
+        >
+      </div>
+    </span>
+  </mat-toolbar>
+</div>

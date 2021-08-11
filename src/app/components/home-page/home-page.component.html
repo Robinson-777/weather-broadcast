@@ -1,0 +1,15 @@
+<app-top-bar></app-top-bar>
+<div id="container" [class.dark-theme]="theme">
+  <mat-card class="ga-forecast-card">
+    <mat-tab-group color="primary" [(selectedIndex)]="tabIdx">
+      <mat-tab label="Current Weather">
+        <app-current-weather
+          (redirectTabEvent)="redirectTab($event)"
+        ></app-current-weather>
+      </mat-tab>
+      <mat-tab label="Forecast">
+        <app-forecast></app-forecast>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

@@ -1,0 +1,49 @@
+<div [hidden]="!resultFound()" [class.dark-theme]="theme">
+  <h1 class="center">Current weather forecast for 5 European cities</h1>
+  <mat-card
+    *ngFor="let currentWeather of listCurrentWeather"
+    class="mat-elevation-z18 mat-card-hov wb-card-whether"
+    (click)="getForecast(currentWeather.cityName)"
+    [title]="currentWeather.cityName"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="txt-clr">
+          {{ currentWeather.cityName }}
+        </h2>
+        <span class="mat-elevation-z18 img-wrapper">
+          <img
+          [src]="currentWeather.cityImg"
+          alt="Site Logo"
+          height="150"
+          width="300"
+        />
+        </span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <strong>Temperature: </strong>
+          {{ currentWeather.temperature - 273.15 | number: "1.0-0"
+          }}
+          <span><sup>o</sup></span>C
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <strong>Sunrise Time:</strong>
+          {{ currentWeather.sunRiseTime * 1000 | date: "long" }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <strong>Sunset Time:</strong>
+          {{ currentWeather.sunSetTime * 1000 | date: "long" }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="!resultFound()">
+  <h1 class="center">{{ msg || "Failed to get weather." }}</h1>
+</div>
